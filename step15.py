@@ -21,10 +21,10 @@ def can_book(new_start: datetime, new_end: datetime, bookings: list) -> bool:
 
 
 
-print(can_book(datetime(2026, 11, 4, 11, 0), datetime(2026, 11, 4, 12, 0), existing))
+print(can_book(datetime(2026, 11, 4, 12, 0), datetime(2026, 11, 4, 11, 0), existing))
 
-try:
-    result = can_book(datetime(2026, 11, 4, 12, 0), datetime(2026, 11, 4, 12, 0), existing)
-    print(result)
-except ValueError as error:
-    print(f"Error: {error}")
+# try:
+#     result = can_book(datetime(2026, 11, 4, 12, 0), datetime(2026, 11, 4, 12, 0), existing)
+#     print(result)
+# except ValueError as error:
+#     print(f"Error: {error}")
