@@ -1,2 +1,5 @@
 .venv/
 bookinghub_data.json
+.idea/
+booked.json
+bookings.txt
