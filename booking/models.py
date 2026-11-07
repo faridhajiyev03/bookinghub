@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from datetime import datetime, timedelta
 
 @dataclass(frozen=True)
 class Service:
@@ -13,3 +14,15 @@ class Service:
             raise ValueError("Price cannot be negative")
         if self.duration <= 0:
             raise ValueError("Duration must be positive")
+
+
+
+
+@dataclass(frozen=True)
+class Booking:
+    client: str
+    service: Service
+    start: datetime
+
+    def end_time(self) -> datetime:
+        return self.start + timedelta(minutes=60.0)

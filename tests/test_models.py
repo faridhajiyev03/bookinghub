@@ -1,6 +1,7 @@
 import pytest
 from dataclasses import FrozenInstanceError
-from booking.models import Service
+from booking.models import Service, Booking
+from datetime import datetime
 
 def test_service_is_frozen():
     service = Service("Haircut", 30.0, 60)
@@ -29,3 +30,7 @@ def test_service_keeps_fields():
 def test_service_rejects_invalid_data(name, price, duration, message):
     with pytest.raises(ValueError, match=message):
         Service(name, price, duration)
+
+def test_booking_end_time(haircut):
+    service = Booking("Anna", haircut, datetime(2026, 11, 7, 10, 0))
+    assert service.end_time() == datetime(2026, 11, 7, 11, 0)
