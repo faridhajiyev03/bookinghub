@@ -1,10 +1,13 @@
 from booking.pricing import apply_discount
+import pytest
 
-def test_apply_discount_ten_percent():
-    assert apply_discount(30.0, 10) == 27.0
-
-def test_apply_discount_zero_percent():
-    assert apply_discount(30.0, 0) == 30.0
-
-def test_apply_discount_hundred_percent():
-    assert apply_discount(30.0, 100) == 10.0
+@pytest.mark.parametrize(
+    "price, percent, expected",
+    [
+        (30.0, 10, 27.0),
+        (30.0, 0, 30.0),
+        (30.0, 100, 0.0),
+    ],
+)
+def test_apply_discount(price, percent, expected):
+    assert apply_discount(price, percent) == expected
