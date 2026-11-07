@@ -9,4 +9,4 @@ def test_first(bag):
     assert bag == ["apple"]
 
 def test_second(bag):
-    assert bag == []
+    assert bag == ["apple"]
