@@ -28,3 +28,8 @@ def test_add_overlapping_booking_raises(schedule, haircut, massage):
     with pytest.raises(ValueError, match="Time slot is already taken"):
         schedule.add(Booking("Boris", massage, datetime(2026, 11, 9, 10, 30)))
     assert len(schedule.bookings) == 1
+
+def test_total_price(schedule, haircut, massage):
+    schedule.add(Booking("Anna", haircut, datetime(2026, 11, 9, 10, 0)))
+    schedule.add(Booking("Boris", massage, datetime(2026, 11, 9, 11, 0)))
+    assert schedule.total_price() == 80.0

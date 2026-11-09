@@ -18,3 +18,6 @@ class Schedule:
                 raise ValueError("Time slot is already taken")
         self.bookings.append(booking)
 
+    def total_price(self) -> float:
+        return sum(booking.service.price for booking in self.bookings)
+
