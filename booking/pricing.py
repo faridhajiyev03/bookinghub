@@ -1,9 +1,9 @@
 from .models import Service
 
-def apply_discount(price, discount)->float:
+def apply_discount(price:float, discount:float)->float:
     return price - (price * discount) / 100
 
-def service_price_with_discount(service, percent)->float:
+def service_price_with_discount(service:Service, percent:float)->float:
     return apply_discount(service.price, percent)
 
 if __name__ == "__main__":

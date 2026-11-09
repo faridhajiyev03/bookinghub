@@ -32,5 +32,5 @@ def test_service_rejects_invalid_data(name, price, duration, message):
         Service(name, price, duration)
 
 def test_booking_end_time(haircut):
-    service = Booking("Anna", haircut, datetime(2026, 11, 7, 10, 0))
-    assert service.end_time() == datetime(2026, 11, 7, 11, 0)
+    booking = Booking("Anna", haircut, datetime(2026, 11, 7, 10, 0))
+    assert booking.end_time() == datetime(2026, 11, 7, 11, 0)
