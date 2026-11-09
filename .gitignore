@@ -4,3 +4,4 @@ bookinghub_data.json
 booked.json
 bookings.txt
 __pycache__/
+git commit -am "Ignore .DS_Store".DS_Store
