@@ -25,4 +25,4 @@ class Booking:
     start: datetime
 
     def end_time(self) -> datetime:
-        return self.start + timedelta(minutes=60.0)
+        return self.start + timedelta(minutes=self.service.duration)

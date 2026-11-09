@@ -33,3 +33,8 @@ def test_total_price(schedule, haircut, massage):
     schedule.add(Booking("Anna", haircut, datetime(2026, 11, 9, 10, 0)))
     schedule.add(Booking("Boris", massage, datetime(2026, 11, 9, 11, 0)))
     assert schedule.total_price() == 80.0
+
+def test_long_service_blocks_following_slot(schedule, massage, haircut):
+    schedule.add(Booking("Boris", massage, datetime(2026, 11, 9, 10, 0)))
+    with pytest.raises(ValueError, match="Time slot is already taken"):
+        schedule.add(Booking("Anna", haircut, datetime(2026, 11, 9, 11, 15)))
