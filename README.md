@@ -1,1 +1,1 @@
-# BookingHub
+# BookingHub: сервис записи
