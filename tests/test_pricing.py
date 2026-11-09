@@ -3,7 +3,10 @@ from booking.pricing import service_price_with_discount
 import pytest
 
 
-
+@pytest.mark.parametrize("discount", [-1, 101])
+def test_apply_discount_rejects_out_of_range(discount):
+    with pytest.raises(ValueError, match="between 0 and 100"):
+        apply_discount(30.0, discount)
 
 @pytest.mark.parametrize(
     "price, percent, expected",
