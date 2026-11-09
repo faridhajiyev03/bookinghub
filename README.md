@@ -1,1 +1,1 @@
-# BookingHub
+# BookingHub: booking service
