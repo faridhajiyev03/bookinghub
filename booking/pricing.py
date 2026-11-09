@@ -1,6 +1,8 @@
 from .models import Service
 
-def apply_discount(price:float, discount:float)->float:
+def apply_discount(price: float, discount: float) -> float:
+    if not (0 <= discount <= 100):
+        raise ValueError("Discount must be between 0 and 100")
     return price - (price * discount) / 100
 
 def service_price_with_discount(service:Service, percent:float)->float:
